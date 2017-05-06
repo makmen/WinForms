@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BanksModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Atm">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="addressatm" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="mainoffice" Type="bit" Nullable="false" />
+    <Property Name="gpsX" Type="float" Nullable="false" />
+    <Property Name="gpsY" Type="float" Nullable="false" />
+    <Property Name="timeopen" Type="int" Nullable="false" />
+    <Property Name="timeclose" Type="int" Nullable="false" />
+    <Property Name="dateregister" Type="datetime" Nullable="false" />
+    <Property Name="cashier" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="idbank" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="datekurs" Type="datetime" Nullable="false" />
+    <Property Name="time" Type="int" Nullable="false" />
+    <Property Name="usdsell" Type="float" Nullable="false" />
+    <Property Name="usdbuy" Type="float" Nullable="false" />
+    <Property Name="eursell" Type="float" Nullable="false" />
+    <Property Name="eurbuy" Type="float" Nullable="false" />
+    <Property Name="rursell" Type="float" Nullable="false" />
+    <Property Name="rurbuy" Type="float" Nullable="false" />
+    <Property Name="idparsebank" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceAtm">
+    <Key>
+      <PropertyRef Name="idAtm" />
+      <PropertyRef Name="idService" />
+    </Key>
+    <Property Name="idAtm" Type="int" Nullable="false" />
+    <Property Name="idService" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="atmForeign">
+    <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+    <End Role="Atm" Type="Self.Atm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Atm">
+        <PropertyRef Name="idbank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AtmServiceForeign">
+    <End Role="Atm" Type="Self.Atm" Multiplicity="1" />
+    <End Role="ServiceAtm" Type="Self.ServiceAtm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atm">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServiceAtm">
+        <PropertyRef Name="idAtm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ServiceAtmForeign">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceAtm" Type="Self.ServiceAtm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ServiceAtm">
+        <PropertyRef Name="idService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BanksModelContainer">
+    <EntitySet Name="Atm" EntityType="Self.Atm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceAtm" EntityType="Self.ServiceAtm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="atmForeign" Association="Self.atmForeign">
+      <End Role="Bank" EntitySet="Bank" />
+      <End Role="Atm" EntitySet="Atm" />
+    </AssociationSet>
+    <AssociationSet Name="AtmServiceForeign" Association="Self.AtmServiceForeign">
+      <End Role="Atm" EntitySet="Atm" />
+      <End Role="ServiceAtm" EntitySet="ServiceAtm" />
+    </AssociationSet>
+    <AssociationSet Name="ServiceAtmForeign" Association="Self.ServiceAtmForeign">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceAtm" EntitySet="ServiceAtm" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

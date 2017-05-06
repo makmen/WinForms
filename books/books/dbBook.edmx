@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище catalogBooksModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="author" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="idGenre" Type="int" Nullable="false" />
+          <Property Name="idPublishing" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publishing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="bookGenreForeign">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="idGenre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bookPublishingForeign">
+          <End Role="Publishing" Type="Self.Publishing" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishing">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="idPublishing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище catalogBooksModelContainer">
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publishing" EntityType="Self.Publishing" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="bookGenreForeign" Association="Self.bookGenreForeign">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="bookPublishingForeign" Association="Self.bookPublishingForeign">
+            <End Role="Publishing" EntitySet="Publishing" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="catalogBooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idGenre" Type="Int32" Nullable="false" />
+          <Property Name="idPublishing" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genre" Relationship="Self.bookGenreForeign" FromRole="Book" ToRole="Genre" />
+          <NavigationProperty Name="Publishing" Relationship="Self.bookPublishingForeign" FromRole="Book" ToRole="Publishing" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Self.bookGenreForeign" FromRole="Genre" ToRole="Book" />
+        </EntityType>
+        <EntityType Name="Publishing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Self.bookPublishingForeign" FromRole="Publishing" ToRole="Book" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="bookGenreForeign">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="idGenre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bookPublishingForeign">
+          <End Role="Publishing" Type="Self.Publishing" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publishing">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="idPublishing" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="catalogBooksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Book" EntityType="Self.Book" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" />
+          <EntitySet Name="Publishing" EntityType="Self.Publishing" />
+          <AssociationSet Name="bookGenreForeign" Association="Self.bookGenreForeign">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="bookPublishingForeign" Association="Self.bookPublishingForeign">
+            <End Role="Publishing" EntitySet="Publishing" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище catalogBooksModelContainer" CdmEntityContainer="catalogBooksEntities">
+          <EntitySetMapping Name="Book">
+            <EntityTypeMapping TypeName="catalogBooksModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="idGenre" ColumnName="idGenre" />
+                <ScalarProperty Name="idPublishing" ColumnName="idPublishing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genre">
+            <EntityTypeMapping TypeName="catalogBooksModel.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishing">
+            <EntityTypeMapping TypeName="catalogBooksModel.Publishing">
+              <MappingFragment StoreEntitySet="Publishing">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

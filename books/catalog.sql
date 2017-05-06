@@ -1,0 +1,23 @@
+CREATE TABLE Genre (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL
+CONSTRAINT genrePrimary PRIMARY KEY (id) 
+);
+
+CREATE TABLE Publishing (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL
+CONSTRAINT publishingPrimary PRIMARY KEY (id) 
+);
+
+
+CREATE TABLE Book (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL, 
+author VARCHAR(255) NOT NULL, 
+idGenre INT NOT NULL,
+idPublishing INT NOT NULL,
+CONSTRAINT bookPrimary PRIMARY KEY (id),
+CONSTRAINT bookGenreForeign FOREIGN KEY (idGenre) REFERENCES Genre,
+CONSTRAINT bookPublishingForeign FOREIGN KEY (idPublishing) REFERENCES Publishing
+);

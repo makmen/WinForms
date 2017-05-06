@@ -1,0 +1,62 @@
+CREATE TABLE Groups (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL
+CONSTRAINT groupsPrimary PRIMARY KEY (id) 
+);
+
+CREATE TABLE Accounts (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL, 
+firstName VARCHAR(255) NOT NULL, 
+lastName VARCHAR(255) NOT NULL, 
+yearBirth DATETIME NOT NULL,
+login VARCHAR(255) NOT NULL, 
+password VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,  
+photo BINARY(255) NULL, 
+idgroup INT NOT NULL,
+CONSTRAINT accountPrimary PRIMARY KEY (id),
+CONSTRAINT accountForeign FOREIGN KEY (idgroup) REFERENCES Groups
+);
+
+CREATE TABLE News (
+id INT IDENTITY NOT NULL,
+theme VARCHAR(255) NOT NULL, 
+content TEXT NOT NULL,
+idaccount INT NOT NULL,
+CONSTRAINT newPrimary PRIMARY KEY (id),
+CONSTRAINT newForeign FOREIGN KEY (idaccount) REFERENCES Accounts
+);
+
+CREATE TABLE Countries (
+id INT IDENTITY NOT NULL,
+title VARCHAR(255) NOT NULL, 
+abbr VARCHAR(10) NOT NULL, 
+CONSTRAINT countryPrimary PRIMARY KEY (id) 
+);
+
+CREATE TABLE Equipment (
+id INT IDENTITY NOT NULL,
+name VARCHAR(255) NOT NULL, 
+eqdescription TEXT NOT NULL,
+voltage INT NOT NULL,
+photo BINARY(255) NOT NULL, 
+idaccount INT NOT NULL,
+idcountry INT NOT NULL,
+CONSTRAINT equipmentPrimary PRIMARY KEY (id),
+CONSTRAINT equipmentForeign FOREIGN KEY (idaccount) REFERENCES Accounts,
+CONSTRAINT countryForeign FOREIGN KEY (idaccount) REFERENCES Countries
+);
+
+
+
+
+
+CREATE TABLE train (
+id INT IDENTITY NOT NULL,
+idquitting INT NULL, 
+login VARCHAR(255) NULL, 
+photo IMAGE NULL, 
+yearBirth DATETIME NULL
+CONSTRAINT trainPrimary PRIMARY KEY (id) 
+);

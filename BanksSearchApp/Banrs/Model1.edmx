@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ObjectSet" EntityType="Model1.Object" />
+          <EntitySet Name="CashierSet" EntityType="Model1.Cashier" />
+          <EntitySet Name="Work_timeSet" EntityType="Model1.Work_time" />
+          <EntitySet Name="RatesSet" EntityType="Model1.Rates" />
+          <AssociationSet Name="RatesObject" Association="Model1.RatesObject">
+            <End Role="Rates" EntitySet="RatesSet" />
+            <End Role="Object" EntitySet="ObjectSet" />
+          </AssociationSet>
+          <AssociationSet Name="CashierObject" Association="Model1.CashierObject">
+            <End Role="Cashier" EntitySet="CashierSet" />
+            <End Role="Object" EntitySet="ObjectSet" />
+          </AssociationSet>
+          <AssociationSet Name="Work_timeObject" Association="Model1.Work_timeObject">
+            <End Role="Work_time" EntitySet="Work_timeSet" />
+            <End Role="Object" EntitySet="ObjectSet" />
+          </AssociationSet>
+          <EntitySet Name="Types_of_servicesSet" EntityType="Model1.Types_of_services" />
+          <AssociationSet Name="Types_of_servicesObject" Association="Model1.Types_of_servicesObject">
+            <End Role="Types_of_services" EntitySet="Types_of_servicesSet" />
+            <End Role="Object" EntitySet="ObjectSet" />
+          </AssociationSet>
+          <EntitySet Name="ReviewsSet" EntityType="Model1.Reviews" />
+          <AssociationSet Name="ReviewsObject" Association="Model1.ReviewsObject">
+            <End Role="Reviews" EntitySet="ReviewsSet" />
+            <End Role="Object" EntitySet="ObjectSet" />
+          </AssociationSet>
+          <EntitySet Name="Work_breakSet" EntityType="Model1.Work_break" />
+          <AssociationSet Name="Work_breakWork_time" Association="Model1.Work_breakWork_time">
+            <End Role="Work_break" EntitySet="Work_breakSet" />
+            <End Role="Work_time" EntitySet="Work_timeSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Object">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Object_name" Type="String" Nullable="true" />
+          <Property Name="Bank_name" Type="String" Nullable="true" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="Object_address" Type="String" Nullable="true" />
+          <Property Name="Coordinates" Type="String" Nullable="true" />
+          <Property Name="Date_of_opening" Type="DateTime" Nullable="true" />
+          <Property Name="Rates" Type="Int64" Nullable="false" />
+          <Property Name="Cashier" Type="Int64" Nullable="false" />
+          <Property Name="Reviews" Type="Int64" Nullable="false" />
+          <Property Name="Types_of_services" Type="String" Nullable="false" />
+          <Property Name="Work_time" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Rates1" Relationship="Model1.RatesObject" FromRole="Object" ToRole="Rates" />
+          <NavigationProperty Name="Cashier1" Relationship="Model1.CashierObject" FromRole="Object" ToRole="Cashier" />
+          <NavigationProperty Name="Work_time1" Relationship="Model1.Work_timeObject" FromRole="Object" ToRole="Work_time" />
+          <NavigationProperty Name="Types_of_services1" Relationship="Model1.Types_of_servicesObject" FromRole="Object" ToRole="Types_of_services" />
+          <NavigationProperty Name="Reviews1" Relationship="Model1.ReviewsObject" FromRole="Object" ToRole="Reviews" />
+        </EntityType>
+        <EntityType Name="Cashier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" />
+          <Property Name="Patranomic" Type="String" Nullable="false" />
+          <NavigationProperty Name="Object" Relationship="Model1.CashierObject" FromRole="Cashier" ToRole="Object" />
+        </EntityType>
+        <EntityType Name="Work_time">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opening_time" Type="String" Nullable="false" />
+          <Property Name="Сlosing_time" Type="String" Nullable="false" />
+          <Property Name="Break" Type="Int64" Nullable="true" />
+          <NavigationProperty Name="Object" Relationship="Model1.Work_timeObject" FromRole="Work_time" ToRole="Object" />
+          <NavigationProperty Name="Work_break" Relationship="Model1.Work_breakWork_time" FromRole="Work_time" ToRole="Work_break" />
+        </EntityType>
+        <EntityType Name="Rates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dollar" Type="String" Nullable="false" />
+          <Property Name="Evro" Type="String" Nullable="false" />
+          <Property Name="RUB" Type="String" Nullable="false" />
+          <NavigationProperty Name="Object" Relationship="Model1.RatesObject" FromRole="Rates" ToRole="Object" />
+        </EntityType>
+        <Association Name="RatesObject">
+          <End Type="Model1.Rates" Role="Rates" Multiplicity="1" />
+          <End Type="Model1.Object" Role="Object" Multiplicity="*" />
+        </Association>
+        <Association Name="CashierObject">
+          <End Type="Model1.Cashier" Role="Cashier" Multiplicity="1" />
+          <End Type="Model1.Object" Role="Object" Multiplicity="*" />
+        </Association>
+        <Association Name="Work_timeObject">
+          <End Type="Model1.Work_time" Role="Work_time" Multiplicity="1" />
+          <End Type="Model1.Object" Role="Object" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Types_of_services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Servis_1" Type="String" Nullable="false" />
+          <Property Name="Servis_2" Type="String" Nullable="false" />
+          <NavigationProperty Name="Object" Relationship="Model1.Types_of_servicesObject" FromRole="Types_of_services" ToRole="Object" />
+        </EntityType>
+        <Association Name="Types_of_servicesObject">
+          <End Type="Model1.Types_of_services" Role="Types_of_services" Multiplicity="1" />
+          <End Type="Model1.Object" Role="Object" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Autor" Type="String" Nullable="true" />
+          <Property Name="Answer" Type="String" Nullable="false" />
+          <NavigationProperty Name="Object" Relationship="Model1.ReviewsObject" FromRole="Reviews" ToRole="Object" />
+        </EntityType>
+        <Association Name="ReviewsObject">
+          <End Type="Model1.Reviews" Role="Reviews" Multiplicity="1" />
+          <End Type="Model1.Object" Role="Object" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Work_break">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Break" Type="String" Nullable="false" />
+          <NavigationProperty Name="Work_time" Relationship="Model1.Work_breakWork_time" FromRole="Work_break" ToRole="Work_time" />
+        </EntityType>
+        <Association Name="Work_breakWork_time">
+          <End Type="Model1.Work_break" Role="Work_break" Multiplicity="1" />
+          <End Type="Model1.Work_time" Role="Work_time" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

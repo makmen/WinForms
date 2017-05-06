@@ -1,0 +1,14 @@
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\bin\Debug\ImageGDI.exe.config
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\bin\Debug\ImageGDI.exe
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\bin\Debug\ImageGDI.pdb
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.csprojResolveAssemblyReference.cache
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.MainForm.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.Properties.Resources.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.csproj.GenerateResource.Cache
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.exe
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.pdb
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.HintForm.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.GameForm.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.StartForm.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.AboutForm.resources
+D:\need\buffer\train_winforms\ImageGDI\ImageGDI\obj\Debug\ImageGDI.ShowResultsForm.resources

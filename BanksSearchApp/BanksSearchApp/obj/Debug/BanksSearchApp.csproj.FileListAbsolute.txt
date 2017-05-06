@@ -1,0 +1,36 @@
+D:\KIN\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe.config
+D:\KIN\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe
+D:\KIN\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.pdb
+D:\KIN\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.Core.xml
+D:\KIN\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.WindowsForms.xml
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csprojResolveAssemblyReference.cache
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.MainForm.resources
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.Properties.Resources.resources
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csproj.GenerateResource.Cache
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.exe
+D:\KIN\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.pdb
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe.config
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.exe
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.pdb
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.pdb
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.Core.xml
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.WindowsForms.xml
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csprojResolveAssemblyReference.cache
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.MainForm.resources
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.Properties.Resources.resources
+\\server\pst\П12014\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csproj.GenerateResource.Cache
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe.config
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.exe
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.pdb
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.pdb
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.Core.xml
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\bin\Debug\GMap.NET.WindowsForms.xml
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csprojResolveAssemblyReference.cache
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.MainForm.resources
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.Properties.Resources.resources
+E:\WinForms\Day8 WinForms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.csproj.GenerateResource.Cache
+D:\need\buffer\train_winforms\BanksSearchApp\BanksSearchApp\bin\Debug\BanksSearchApp.exe.config
+D:\need\buffer\train_winforms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.exe
+D:\need\buffer\train_winforms\BanksSearchApp\BanksSearchApp\obj\Debug\BanksSearchApp.pdb

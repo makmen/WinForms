@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище BanksModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="addressatm" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="mainoffice" Type="bit" Nullable="false" />
+          <Property Name="gpsX" Type="float" Nullable="false" />
+          <Property Name="gpsY" Type="float" Nullable="false" />
+          <Property Name="timeopen" Type="int" Nullable="false" />
+          <Property Name="timeclose" Type="int" Nullable="false" />
+          <Property Name="dateregister" Type="datetime" Nullable="false" />
+          <Property Name="cashier" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="description" Type="text" />
+          <Property Name="idbank" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="datekurs" Type="datetime" Nullable="false" />
+          <Property Name="time" Type="int" Nullable="false" />
+          <Property Name="usdsell" Type="float" Nullable="false" />
+          <Property Name="usdbuy" Type="float" Nullable="false" />
+          <Property Name="eursell" Type="float" Nullable="false" />
+          <Property Name="eurbuy" Type="float" Nullable="false" />
+          <Property Name="rursell" Type="float" Nullable="false" />
+          <Property Name="rurbuy" Type="float" Nullable="false" />
+          <Property Name="idparsebank" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="code" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceAtm">
+          <Key>
+            <PropertyRef Name="idAtm" />
+            <PropertyRef Name="idService" />
+          </Key>
+          <Property Name="idAtm" Type="int" Nullable="false" />
+          <Property Name="idService" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="atmForeign">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+          <End Role="Atm" Type="Self.Atm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Atm">
+              <PropertyRef Name="idbank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AtmServiceForeign">
+          <End Role="Atm" Type="Self.Atm" Multiplicity="1" />
+          <End Role="ServiceAtm" Type="Self.ServiceAtm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atm">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ServiceAtm">
+              <PropertyRef Name="idAtm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ServiceAtmForeign">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="ServiceAtm" Type="Self.ServiceAtm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ServiceAtm">
+              <PropertyRef Name="idService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище BanksModelContainer">
+          <EntitySet Name="Atm" EntityType="Self.Atm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceAtm" EntityType="Self.ServiceAtm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="atmForeign" Association="Self.atmForeign">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Atm" EntitySet="Atm" />
+          </AssociationSet>
+          <AssociationSet Name="AtmServiceForeign" Association="Self.AtmServiceForeign">
+            <End Role="Atm" EntitySet="Atm" />
+            <End Role="ServiceAtm" EntitySet="ServiceAtm" />
+          </AssociationSet>
+          <AssociationSet Name="ServiceAtmForeign" Association="Self.ServiceAtmForeign">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceAtm" EntitySet="ServiceAtm" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BanksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="BanksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Atm" EntityType="BanksModel.Atm" />
+          <EntitySet Name="Bank" EntityType="BanksModel.Bank" />
+          <EntitySet Name="Service" EntityType="BanksModel.Service" />
+          <AssociationSet Name="atmForeign" Association="BanksModel.atmForeign">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Atm" EntitySet="Atm" />
+          </AssociationSet>
+          <AssociationSet Name="ServiceAtm" Association="BanksModel.ServiceAtm">
+            <End Role="Atm" EntitySet="Atm" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Atm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="addressatm" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mainoffice" Type="Boolean" Nullable="false" />
+          <Property Name="gpsX" Type="Double" Nullable="false" />
+          <Property Name="gpsY" Type="Double" Nullable="false" />
+          <Property Name="timeopen" Type="Int32" Nullable="false" />
+          <Property Name="timeclose" Type="Int32" Nullable="false" />
+          <Property Name="dateregister" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cashier" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idbank" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bank" Relationship="BanksModel.atmForeign" FromRole="Atm" ToRole="Bank" />
+          <NavigationProperty Name="Service" Relationship="BanksModel.ServiceAtm" FromRole="Atm" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="datekurs" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="time" Type="Int32" Nullable="false" />
+          <Property Name="usdsell" Type="Double" Nullable="false" />
+          <Property Name="usdbuy" Type="Double" Nullable="false" />
+          <Property Name="eursell" Type="Double" Nullable="false" />
+          <Property Name="eurbuy" Type="Double" Nullable="false" />
+          <Property Name="rursell" Type="Double" Nullable="false" />
+          <Property Name="rurbuy" Type="Double" Nullable="false" />
+          <Property Name="idparsebank" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Atm" Relationship="BanksModel.atmForeign" FromRole="Bank" ToRole="Atm" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Atm" Relationship="BanksModel.ServiceAtm" FromRole="Service" ToRole="Atm" />
+        </EntityType>
+        <Association Name="atmForeign">
+          <End Type="BanksModel.Bank" Role="Bank" Multiplicity="1" />
+          <End Type="BanksModel.Atm" Role="Atm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Atm">
+              <PropertyRef Name="idbank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ServiceAtm">
+          <End Type="BanksModel.Atm" Role="Atm" Multiplicity="*" />
+          <End Type="BanksModel.Service" Role="Service" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BanksModelContainer" CdmEntityContainer="BanksEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BanksModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Atm">
+            <EntityTypeMapping TypeName="BanksModel.Atm">
+              <MappingFragment StoreEntitySet="Atm">
+                <ScalarProperty Name="idbank" ColumnName="idbank" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="cashier" ColumnName="cashier" />
+                <ScalarProperty Name="dateregister" ColumnName="dateregister" />
+                <ScalarProperty Name="timeclose" ColumnName="timeclose" />
+                <ScalarProperty Name="timeopen" ColumnName="timeopen" />
+                <ScalarProperty Name="gpsY" ColumnName="gpsY" />
+                <ScalarProperty Name="gpsX" ColumnName="gpsX" />
+                <ScalarProperty Name="mainoffice" ColumnName="mainoffice" />
+                <ScalarProperty Name="addressatm" ColumnName="addressatm" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bank">
+            <EntityTypeMapping TypeName="BanksModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="idparsebank" ColumnName="idparsebank" />
+                <ScalarProperty Name="rurbuy" ColumnName="rurbuy" />
+                <ScalarProperty Name="rursell" ColumnName="rursell" />
+                <ScalarProperty Name="eurbuy" ColumnName="eurbuy" />
+                <ScalarProperty Name="eursell" ColumnName="eursell" />
+                <ScalarProperty Name="usdbuy" ColumnName="usdbuy" />
+                <ScalarProperty Name="usdsell" ColumnName="usdsell" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="datekurs" ColumnName="datekurs" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="BanksModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ServiceAtm" TypeName="BanksModel.ServiceAtm" StoreEntitySet="ServiceAtm">
+            <EndProperty Name="Service">
+              <ScalarProperty Name="id" ColumnName="idService" />
+            </EndProperty>
+            <EndProperty Name="Atm">
+              <ScalarProperty Name="id" ColumnName="idAtm" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

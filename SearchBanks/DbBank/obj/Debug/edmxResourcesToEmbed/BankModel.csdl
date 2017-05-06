@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BanksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="BanksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Atm" EntityType="BanksModel.Atm" />
+    <EntitySet Name="Bank" EntityType="BanksModel.Bank" />
+    <EntitySet Name="Service" EntityType="BanksModel.Service" />
+    <AssociationSet Name="atmForeign" Association="BanksModel.atmForeign">
+      <End Role="Bank" EntitySet="Bank" />
+      <End Role="Atm" EntitySet="Atm" />
+    </AssociationSet>
+    <AssociationSet Name="ServiceAtm" Association="BanksModel.ServiceAtm">
+      <End Role="Atm" EntitySet="Atm" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Atm">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="addressatm" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mainoffice" Type="Boolean" Nullable="false" />
+    <Property Name="gpsX" Type="Double" Nullable="false" />
+    <Property Name="gpsY" Type="Double" Nullable="false" />
+    <Property Name="timeopen" Type="Int32" Nullable="false" />
+    <Property Name="timeclose" Type="Int32" Nullable="false" />
+    <Property Name="dateregister" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cashier" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idbank" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bank" Relationship="BanksModel.atmForeign" FromRole="Atm" ToRole="Bank" />
+    <NavigationProperty Name="Service" Relationship="BanksModel.ServiceAtm" FromRole="Atm" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="datekurs" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="time" Type="Int32" Nullable="false" />
+    <Property Name="usdsell" Type="Double" Nullable="false" />
+    <Property Name="usdbuy" Type="Double" Nullable="false" />
+    <Property Name="eursell" Type="Double" Nullable="false" />
+    <Property Name="eurbuy" Type="Double" Nullable="false" />
+    <Property Name="rursell" Type="Double" Nullable="false" />
+    <Property Name="rurbuy" Type="Double" Nullable="false" />
+    <Property Name="idparsebank" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Atm" Relationship="BanksModel.atmForeign" FromRole="Bank" ToRole="Atm" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Atm" Relationship="BanksModel.ServiceAtm" FromRole="Service" ToRole="Atm" />
+  </EntityType>
+  <Association Name="atmForeign">
+    <End Type="BanksModel.Bank" Role="Bank" Multiplicity="1" />
+    <End Type="BanksModel.Atm" Role="Atm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bank">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Atm">
+        <PropertyRef Name="idbank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ServiceAtm">
+    <End Type="BanksModel.Atm" Role="Atm" Multiplicity="*" />
+    <End Type="BanksModel.Service" Role="Service" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,22 @@
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\Google_Maps_and_Gmap.exe
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\Google_Maps_and_Gmap.pdb
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.Core.dll
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.WindowsForms.dll
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.Core.xml
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.WindowsForms.xml
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.csprojResolveAssemblyReference.cache
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.Form1.resources
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.Properties.Resources.resources
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.csproj.GenerateResource.Cache
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.exe
+c:\users\boyko_ia\documents\visual studio 2012\Projects\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.pdb
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.exe
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.pdb
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\Google_Maps_and_Gmap.exe
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\Google_Maps_and_Gmap.pdb
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.Core.xml
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\bin\Debug\GMap.NET.WindowsForms.xml
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.csprojResolveAssemblyReference.cache
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.Form1.resources
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.Properties.Resources.resources
+D:\need\buffer\train_winforms\Google_Maps_and_Gmap\Google_Maps_and_Gmap\obj\Debug\Google_Maps_and_Gmap.csproj.GenerateResource.Cache

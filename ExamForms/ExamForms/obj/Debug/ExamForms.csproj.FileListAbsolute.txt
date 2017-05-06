@@ -1,0 +1,12 @@
+D:\need\buffer\train_winforms\ExamForms\ExamForms\bin\Debug\ExamForms.exe.config
+D:\need\buffer\train_winforms\ExamForms\ExamForms\bin\Debug\ExamForms.exe
+D:\need\buffer\train_winforms\ExamForms\ExamForms\bin\Debug\ExamForms.pdb
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.csprojResolveAssemblyReference.cache
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.Properties.Resources.resources
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.csproj.GenerateResource.Cache
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.exe
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.pdb
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.Form1.resources
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.NewUser.resources
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.Dashboard.resources
+D:\need\buffer\train_winforms\ExamForms\ExamForms\obj\Debug\ExamForms.Users.resources

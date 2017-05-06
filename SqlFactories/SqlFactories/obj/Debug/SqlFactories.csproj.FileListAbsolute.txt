@@ -1,0 +1,8 @@
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\bin\Debug\SqlFactories.exe.config
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\obj\Debug\SqlFactories.Form1.resources
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\obj\Debug\SqlFactories.Properties.Resources.resources
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\obj\Debug\SqlFactories.csproj.GenerateResource.Cache
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\bin\Debug\SqlFactories.exe
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\bin\Debug\SqlFactories.pdb
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\obj\Debug\SqlFactories.exe
+D:\need\buffer\train_winforms\SqlFactories\SqlFactories\obj\Debug\SqlFactories.pdb

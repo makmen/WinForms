@@ -1,0 +1,10 @@
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\EntityFramework.dll
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\EntityFramework.xml
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\WinForms\Day8 WinForms\BanksSearchApp\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

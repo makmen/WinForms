@@ -1,0 +1,10 @@
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\DbBank.dll
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\DbBank.pdb
+D:\need\buffer\train_winforms\SearchBanks\DbBank\obj\Debug\DbBank.dll
+D:\need\buffer\train_winforms\SearchBanks\DbBank\obj\Debug\DbBank.pdb
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\DbBank.dll.config
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\EntityFramework.dll
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\EntityFramework.SqlServer.dll
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\EntityFramework.xml
+D:\need\buffer\train_winforms\SearchBanks\DbBank\bin\Debug\EntityFramework.SqlServer.xml
+D:\need\buffer\train_winforms\SearchBanks\DbBank\obj\Debug\DbBank.csprojResolveAssemblyReference.cache

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanksSearchApp", "BanksSearchApp\BanksSearchApp.csproj", "{4D9774E4-753F-485A-B9EC-C6D87D389D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{EE3785D2-7B90-4679-AAC4-B56E2ABBAAD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banks", "Banrs\Banks.csproj", "{25940034-B4D6-41D2-8F8D-353DA57AC643}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9774E4-753F-485A-B9EC-C6D87D389D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9774E4-753F-485A-B9EC-C6D87D389D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9774E4-753F-485A-B9EC-C6D87D389D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9774E4-753F-485A-B9EC-C6D87D389D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE3785D2-7B90-4679-AAC4-B56E2ABBAAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3785D2-7B90-4679-AAC4-B56E2ABBAAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3785D2-7B90-4679-AAC4-B56E2ABBAAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3785D2-7B90-4679-AAC4-B56E2ABBAAD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25940034-B4D6-41D2-8F8D-353DA57AC643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25940034-B4D6-41D2-8F8D-353DA57AC643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25940034-B4D6-41D2-8F8D-353DA57AC643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25940034-B4D6-41D2-8F8D-353DA57AC643}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

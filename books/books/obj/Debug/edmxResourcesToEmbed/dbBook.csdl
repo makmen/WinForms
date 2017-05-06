@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="catalogBooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idGenre" Type="Int32" Nullable="false" />
+    <Property Name="idPublishing" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Genre" Relationship="Self.bookGenreForeign" FromRole="Book" ToRole="Genre" />
+    <NavigationProperty Name="Publishing" Relationship="Self.bookPublishingForeign" FromRole="Book" ToRole="Publishing" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.bookGenreForeign" FromRole="Genre" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Publishing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="Self.bookPublishingForeign" FromRole="Publishing" ToRole="Book" />
+    <Property Name="year" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="bookGenreForeign">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="idGenre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bookPublishingForeign">
+    <End Role="Publishing" Type="Self.Publishing" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publishing">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="idPublishing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="catalogBooksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" />
+    <EntitySet Name="Publishing" EntityType="Self.Publishing" />
+    <AssociationSet Name="bookGenreForeign" Association="Self.bookGenreForeign">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="bookPublishingForeign" Association="Self.bookPublishingForeign">
+      <End Role="Publishing" EntitySet="Publishing" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

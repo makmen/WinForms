@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище catalogBooksModelContainer" CdmEntityContainer="catalogBooksEntities">
+    <EntitySetMapping Name="Book">
+      <EntityTypeMapping TypeName="catalogBooksModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="idGenre" ColumnName="idGenre" />
+          <ScalarProperty Name="idPublishing" ColumnName="idPublishing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genre">
+      <EntityTypeMapping TypeName="catalogBooksModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publishing">
+      <EntityTypeMapping TypeName="catalogBooksModel.Publishing">
+        <MappingFragment StoreEntitySet="Publishing">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
